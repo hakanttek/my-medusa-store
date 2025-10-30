@@ -15,6 +15,9 @@ module.exports = defineConfig({
     databaseDriverOptions: {
       ssl: false,
       sslmode: "disable",
+    },
+    cookieOptions: {
+      sameSite: 'lax'
     }
   }
 })
