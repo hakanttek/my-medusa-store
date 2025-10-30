@@ -10,7 +10,14 @@ module.exports = defineConfig({
       adminCors: process.env.ADMIN_CORS!,
       authCors: process.env.AUTH_CORS!,
       jwtSecret: process.env.JWT_SECRET || "supersecret",
+      jwtExpiresIn: process.env.JWT_EXPIRES_IN || "2d",
       cookieSecret: process.env.COOKIE_SECRET || "supersecret",
+      compression: {
+        enabled: true,
+        level: 6,
+        memLevel: 8,
+        threshold: 1024,
+      }
     },
     databaseDriverOptions: process.env.NODE_ENV === "development"
       ? {
@@ -23,6 +30,7 @@ module.exports = defineConfig({
       : {},
     cookieOptions: {
       sameSite: 'lax'
-    }
+    },
+    databaseLogging: true
   }
 })
