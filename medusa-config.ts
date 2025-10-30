@@ -17,6 +17,10 @@ module.exports = defineConfig({
         level: 6,
         memLevel: 8,
         threshold: 1024,
+      },
+      authMethodsPerActor: {
+        user: ["emailpass"],
+        customer: ["emailpass", "google"],
       }
     },
     databaseDriverOptions: process.env.NODE_ENV === "development"
