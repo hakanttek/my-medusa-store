@@ -32,5 +32,10 @@ module.exports = defineConfig({
       sameSite: 'lax'
     },
     databaseLogging: true
-  }
+  },
+  modules: [
+    {
+      resolve: "./src/modules/brand"
+    }
+  ]
 })
