@@ -18,3 +18,15 @@ export const createBrandStep = createStep(
     await brandModuleService.deleteBrands(id);
   }
 )
+
+type CreateBrandWorkflowInput = {
+  name: string
+}
+
+export const createBrandWorkflow = createWorkflow(
+  "create-brand",
+  (input: CreateBrandWorkflowInput) => {
+    const brand = createBrandStep(input);
+    return new WorkflowResponse(brand);
+  }
+)
