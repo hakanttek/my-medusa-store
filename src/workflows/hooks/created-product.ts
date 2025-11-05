@@ -39,5 +39,13 @@ createProductsWorkflow.hooks.productsCreated(
     logger.info("Linked brand to products")
 
     return new StepResponse(links, links)
+  }),
+  // dismiss Links in Compensation
+  (async (links, { container }) => {
+    if (!links?.length)
+      return;
+
+    const link = container.resolve("link");
+    await link.dismiss(links);
   })
 )
