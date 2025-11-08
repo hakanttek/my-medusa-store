@@ -23,10 +23,19 @@ export const GET = async (
 ) => {
   const query = req.scope.resolve("query");
 
-  const { data: brands } = await query.graph({
+  const {
+    data: brands,
+    metadata: { count, take, skip } = {}
+  } = await query.graph({
     entity: "brand",
-    fields: ["*", "products.*"]
+    ...req.queryConfig
+    // fields: ["*", "products.*"]
   });
 
-  res.json(brands);
+  res.json({
+    brands,
+    count,
+    limit: take,
+    offset: skip
+  });
 }
