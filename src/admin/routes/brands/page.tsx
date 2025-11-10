@@ -6,7 +6,7 @@ const BrandPage = () => {
   // TODO retrieve brands
 
   return (
-    <Container>
+    <Container className="divide-y p-0">
       {/* TODO show brands */}
     </Container>
   )
