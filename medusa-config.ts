@@ -36,6 +36,12 @@ module.exports = defineConfig({
   modules: [
     {
       resolve: "./src/modules/brand"
+    },
+    {
+      resolve: "./src/module/cms",
+      options: {
+        apiKey: process.env.CMS_API_KEY
+      }
     }
   ]
 })
