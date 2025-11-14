@@ -1,16 +1,17 @@
-import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk"
+import { createStep, createWorkflow, StepResponse, WorkflowResponse } from "@medusajs/framework/workflows-sdk"
 import { InferTypeOf } from "@medusajs/framework/types"
 import { Brand } from "../modules/brand/models/brand"
 import { CMS_MODULE } from "../modules/cms"
 import CmsModuleService from "../modules/cms/service"
+import { useQueryGraphStep } from "@medusajs/medusa/core-flows"
 
-type SyncBrandToCms = {
+type SyncBrandToCmsStepInput = {
   brand: InferTypeOf<typeof Brand>
 }
 
 const syncBrandToCmsStep = createStep(
   "sync-brand-to-cms",
-  async ({ brand }: SyncBrandToCms, { container }) => {
+  async ({ brand }: SyncBrandToCmsStepInput, { container }) => {
     const cmsModuleService: CmsModuleService = container.resolve(CMS_MODULE);
 
     await cmsModuleService.createBrand(brand);
@@ -24,5 +25,31 @@ const syncBrandToCmsStep = createStep(
     const cmsModuleService: CmsModuleService = container.resolve(CMS_MODULE);
 
     await cmsModuleService.deleteBrand(id);
+  }
+)
+
+type SyncBrandToCmsWorkflowInput = {
+  id: string
+}
+
+export const syncBrandToCmsWorkflow = createWorkflow(
+  "sync-brand-to-cms",
+  (input: SyncBrandToCmsWorkflowInput) => {
+    const { data: brands } = useQueryGraphStep({
+      entity: "brand",
+      fields: ["*"],
+      filters: {
+        id: input.id
+      },
+      options: {
+        throwIfKeyNotFound: true
+      }
+    })
+
+    syncBrandToCmsStep({
+      brand: brands[0]
+    } as SyncBrandToCmsStepInput)
+
+    return new WorkflowResponse({});
   }
 )
