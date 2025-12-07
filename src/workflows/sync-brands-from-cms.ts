@@ -20,7 +20,7 @@ type CreateBrandsInput = {
   brands: CreateBrand[];
 }
 
-export const createBrandStep = createStep(
+export const createBrandsStep = createStep(
   "create-brands-step",
   async (input: CreateBrandsInput, { container }) => {
     const brandModuleService = container.resolve<BrandModuleService>(BRAND_MODULE);
@@ -47,7 +47,7 @@ type UpdateBrandsInput = {
   brands: UpdateBrand[];
 }
 
-export const updateBrandStep = createStep(
+export const updateBrandsStep = createStep(
   "update-brands-step",
   async ({ brands }: UpdateBrandsInput, { container }) => {
 
