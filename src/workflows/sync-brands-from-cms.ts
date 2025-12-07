@@ -1,4 +1,4 @@
-import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk";
+import { createStep, createWorkflow, StepResponse } from "@medusajs/framework/workflows-sdk";
 import { CMS_MODULE } from "../modules/cms"
 import BrandModuleService from "../modules/brand/service"
 import { BRAND_MODULE } from "../modules/brand"
@@ -69,5 +69,14 @@ export const updateBrandsStep = createStep(
     const brandModuleService: BrandModuleService = container.resolve(BRAND_MODULE);
 
     await brandModuleService.updateBrands(prevUpdatedBrands);
+  }
+)
+
+export const syncBrandsFromCmsWorkflow = createWorkflow(
+  "sync-brands-from-system",
+  () => {
+    const brands = retrieveBrandsFromCmsStep()
+
+    // TODO create and update brands
   }
 )
