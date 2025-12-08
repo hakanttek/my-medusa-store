@@ -79,7 +79,7 @@ export const syncBrandsFromCmsWorkflow = createWorkflow(
 
     const { toCreate, toUpdate } = transform(
       {
-        brands,
+        brands
       },
       (data) => {
         const toCreate: CreateBrand[] = []
