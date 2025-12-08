@@ -102,6 +102,12 @@ export const syncBrandsFromCmsWorkflow = createWorkflow(
       }
     )
 
-    // TODO create and update the brands
+    const created = createBrandsStep({ brands: toCreate })
+    const updated = updateBrandsStep({ brands: toUpdate })
+
+    return new WorkflowResponse({
+      created,
+      updated,
+    })
   }
 )
