@@ -28,7 +28,7 @@ const createPostStep = createStep(
   }
 )
 
-export const CreatePostWorkflow = createWorkflow(
+export const createPostWorkflow = createWorkflow(
   "create-post",
   (input: Input) => {
     const post = createPostStep(input)
