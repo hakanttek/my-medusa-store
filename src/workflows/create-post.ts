@@ -1,4 +1,4 @@
-import { createStep, StepResponse } from "@medusajs/framework/workflows-sdk"
+import { createStep, createWorkflow, StepResponse, WorkflowResponse } from "@medusajs/framework/workflows-sdk"
 import { BlogModuleService } from "../modules/blog/service"
 import { BLOG_MODULE } from "../modules/blog"
 import { container } from "@medusajs/framework"
@@ -25,5 +25,13 @@ const createPostStep = createStep(
     const blogModuleService: BlogModuleService = container.resolve(BLOG_MODULE)
 
     await blogModuleService.deletePosts(postId)
+  }
+)
+
+export const CreatePostWorkflow = createWorkflow(
+  "create-post",
+  (input: Input) => {
+    const post = createPostStep(input)
+    return new WorkflowResponse(post)
   }
 )
