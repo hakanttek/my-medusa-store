@@ -42,6 +42,9 @@ module.exports = defineConfig({
       options: {
         apiKey: process.env.CMS_API_KEY
       }
+    },
+    {
+      resolve: "./src/modules/product-review",
     }
   ]
 })
