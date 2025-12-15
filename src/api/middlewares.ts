@@ -1,7 +1,8 @@
-import { defineMiddlewares, validateAndTransformBody, validateAndTransformQuery, } from "@medusajs/framework/http"
+import { authenticate, defineMiddlewares, validateAndTransformBody, validateAndTransformQuery, } from "@medusajs/framework/http"
 import { PostAdminCreateBrand } from "./admin/brands/validators"
 import { z } from 'zod'
 import { createFindParams } from "@medusajs/medusa/api/utils/validators"
+import { PostStoreReviewSchema } from "../store/reviews/route";
 
 export const GetBrandsSchema = createFindParams();
 
@@ -37,6 +38,14 @@ export default defineMiddlewares({
           }
         ),
       ],
-    }
+    },
+    {
+      method: ["POST"], 
+      matcher: "/store/reviews",
+      middlewares: [
+        authenticate("customer", ["session", "bearer"]),
+        validateAndTransformBody(PostStoreReviewSchema),
+      ],
+    },
   ],
 })
