@@ -2,7 +2,7 @@ import { authenticate, defineMiddlewares, validateAndTransformBody, validateAndT
 import { PostAdminCreateBrand } from "./admin/brands/validators"
 import { z } from 'zod'
 import { createFindParams } from "@medusajs/medusa/api/utils/validators"
-import { PostStoreReviewSchema } from "../store/reviews/route";
+import { PostStoreReviewSchema } from "./store/reviews/route";
 
 export const GetBrandsSchema = createFindParams();
 

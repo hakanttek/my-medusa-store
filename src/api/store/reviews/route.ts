@@ -2,7 +2,7 @@ import type {
   AuthenticatedMedusaRequest,
   MedusaResponse,
 } from "@medusajs/framework/http"
-import { createReviewWorkflow } from "../../workflows/create-review"
+import { createReviewWorkflow } from "../../../workflows/create-review"
 
 import { z } from "zod"
 
