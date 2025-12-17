@@ -3,6 +3,7 @@ import { PostAdminCreateBrand } from "./admin/brands/validators"
 import { z } from 'zod'
 import { createFindParams } from "@medusajs/medusa/api/utils/validators"
 import { PostStoreReviewSchema } from "./store/reviews/route";
+import { GetAdminReviewsSchema } from "./admin/reviews/route"
 
 export const GetBrandsSchema = createFindParams();
 
@@ -40,12 +41,33 @@ export default defineMiddlewares({
       ],
     },
     {
-      method: ["POST"], 
+      method: ["POST"],
       matcher: "/store/reviews",
       middlewares: [
         authenticate("customer", ["session", "bearer"]),
         validateAndTransformBody(PostStoreReviewSchema),
       ],
     },
+    {
+      matcher: "/admin/reviews",
+      method: ["GET"],
+      middlewares: [
+        validateAndTransformQuery(GetAdminReviewsSchema, {
+          isList: true,
+          defaults: [
+            "id",
+            "title",
+            "content",
+            "rating",
+            "product_id",
+            "customer_id",
+            "status",
+            "created_at",
+            "updated_at",
+            "product.*",
+          ],
+        }),
+      ],
+    }
   ],
 })
