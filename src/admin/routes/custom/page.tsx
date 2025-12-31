@@ -18,3 +18,7 @@ export const config = defineRouteConfig({
 })
 
 export default CustomPage
+
+export const handle = {
+  breadcrumb: () => "Custom Route",
+}
