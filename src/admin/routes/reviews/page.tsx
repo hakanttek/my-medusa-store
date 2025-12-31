@@ -188,3 +188,7 @@ const useCommands = (refetch: () => void) => {
     }),
   ]
 }
+
+
+// hold the selected reviews in the table
+const [rowSelection, setRowSelection] = useState<DataTableRowSelectionState>({})
