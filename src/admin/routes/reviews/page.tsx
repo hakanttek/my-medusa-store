@@ -8,7 +8,7 @@ import {
   Heading,
   StatusBadge,
   Toaster,
-  DataTablePaginationState,
+  DataTablePaginationState
 } from "@medusajs/ui"
 import { useQuery } from "@tanstack/react-query"
 import { useMemo, useState } from "react"
@@ -34,6 +34,7 @@ type Review = {
 const columnHelper = createDataTableColumnHelper<Review>()
 
 const columns = [
+  columnHelper.select(),
   columnHelper.accessor("id", {
     header: "ID",
   }),
@@ -135,3 +136,4 @@ export const config = defineRouteConfig({
 })
 
 export default ReviewsPage
+
