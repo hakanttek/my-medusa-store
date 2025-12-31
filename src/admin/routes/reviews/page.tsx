@@ -8,7 +8,10 @@ import {
   Heading,
   StatusBadge,
   Toaster,
-  DataTablePaginationState
+  DataTablePaginationState,
+  createDataTableCommandHelper,
+  DataTableRowSelectionState,
+  toast
 } from "@medusajs/ui"
 import { useQuery } from "@tanstack/react-query"
 import { useMemo, useState } from "react"
@@ -137,3 +140,51 @@ export const config = defineRouteConfig({
 
 export default ReviewsPage
 
+// commands that allow the admin user to approve or reject the selected reviews. So, add the following after the columns array:
+
+const commandHelper = createDataTableCommandHelper()
+
+const useCommands = (refetch: () => void) => {
+  return [
+    commandHelper.command({
+      label: "Approve",
+      shortcut: "A",
+      action: async (selection) => {
+        const reviewsToApproveIds = Object.keys(selection)
+
+        sdk.client.fetch("/admin/reviews/status", {
+          method: "POST",
+          body: {
+            ids: reviewsToApproveIds,
+            status: "approved",
+          },
+        }).then(() => {
+          toast.success("Reviews approved")
+          refetch()
+        }).catch(() => {
+          toast.error("Failed to approve reviews")
+        })
+      },
+    }),
+    commandHelper.command({
+      label: "Reject",
+      shortcut: "R",
+      action: async (selection) => {
+        const reviewsToRejectIds = Object.keys(selection)
+
+        sdk.client.fetch("/admin/reviews/status", {
+          method: "POST",
+          body: {
+            ids: reviewsToRejectIds,
+            status: "rejected",
+          },
+        }).then(() => {
+          toast.success("Reviews rejected")
+          refetch()
+        }).catch(() => {
+          toast.error("Failed to reject reviews")
+        })
+      },
+    }),
+  ]
+}
