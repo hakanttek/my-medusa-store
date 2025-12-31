@@ -1,13 +1,13 @@
 import { defineRouteConfig } from "@medusajs/admin-sdk"
 import { ChatBubbleLeftRight } from "@medusajs/icons"
-import { 
-  createDataTableColumnHelper, 
-  Container, 
-  DataTable, 
-  useDataTable, 
-  Heading, 
-  StatusBadge, 
-  Toaster, 
+import {
+  createDataTableColumnHelper,
+  Container,
+  DataTable,
+  useDataTable,
+  Heading,
+  StatusBadge,
+  Toaster,
   DataTablePaginationState,
 } from "@medusajs/ui"
 import { useQuery } from "@tanstack/react-query"
@@ -41,7 +41,7 @@ const columns = [
     header: "Title",
   }),
   columnHelper.accessor("rating", {
-    header: "Rating", 
+    header: "Rating",
   }),
   columnHelper.accessor("content", {
     header: "Content",
@@ -49,13 +49,13 @@ const columns = [
   columnHelper.accessor("status", {
     header: "Status",
     cell: ({ row }) => {
-      const color = row.original.status === "approved" ? 
-        "green" : row.original.status === "rejected" 
-        ? "red" : "grey"
+      const color = row.original.status === "approved" ?
+        "green" : row.original.status === "rejected"
+          ? "red" : "grey"
       return (
         <StatusBadge color={color}>
           {row.original.status.charAt(0).toUpperCase() + row.original.status.slice(1)}
-          </StatusBadge>
+        </StatusBadge>
       )
     },
   }),
