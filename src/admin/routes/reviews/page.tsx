@@ -80,6 +80,10 @@ const columns = [
 const limit = 15
 
 const ReviewsPage = () => {
+
+  // hold the selected reviews in the table
+  const [rowSelection, setRowSelection] = useState<DataTableRowSelectionState>({})
+
   const [pagination, setPagination] = useState<DataTablePaginationState>({
     pageSize: limit,
     pageIndex: 0,
@@ -196,7 +200,3 @@ const useCommands = (refetch: () => void) => {
     }),
   ]
 }
-
-
-// hold the selected reviews in the table
-const [rowSelection, setRowSelection] = useState<DataTableRowSelectionState>({})
