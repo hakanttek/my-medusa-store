@@ -105,6 +105,8 @@ const ReviewsPage = () => {
     }),
   })
 
+  const commands = useCommands(refetch)
+
   const table = useDataTable({
     columns,
     data: data?.reviews || [],
@@ -115,6 +117,11 @@ const ReviewsPage = () => {
       onPaginationChange: setPagination,
     },
     getRowId: (row) => row.id,
+    commands,
+    rowSelection: {
+      state: rowSelection,
+      onRowSelectionChange: setRowSelection,
+    },
   })
 
   return (
