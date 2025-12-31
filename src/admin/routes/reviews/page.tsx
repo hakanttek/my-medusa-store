@@ -134,6 +134,7 @@ const ReviewsPage = () => {
         </DataTable.Toolbar>
         <DataTable.Table />
         <DataTable.Pagination />
+        <DataTable.CommandBar selectedLabel={(count) => `${count} selected`} />
       </DataTable>
       <Toaster />
     </Container>
