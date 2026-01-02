@@ -28,7 +28,8 @@
     "@medusajs/admin-sdk": "2.11.1",
     "@medusajs/cli": "2.11.1",
     "@medusajs/framework": "2.11.1",
-    "@medusajs/medusa": "2.11.1"
+    "@medusajs/medusa": "2.11.1",
+    "medusa-plugin-wishlist": "file:.yalc/medusa-plugin-wishlist"
   },
   "devDependencies": {
     "@medusajs/test-utils": "2.11.1",
