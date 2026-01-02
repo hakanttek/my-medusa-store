@@ -46,5 +46,11 @@ module.exports = defineConfig({
     {
       resolve: "./src/modules/product-review",
     }
+  ],
+  plugins: [
+    {
+      resolve: "@medusa-plugin-wishlist",
+      options: {}
+    }
   ]
 })
