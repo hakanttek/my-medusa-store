@@ -49,7 +49,7 @@ module.exports = defineConfig({
   ],
   plugins: [
     {
-      resolve: "@medusa-plugin-wishlist",
+      resolve: "medusa-plugin-wishlist",
       options: {}
     }
   ]
