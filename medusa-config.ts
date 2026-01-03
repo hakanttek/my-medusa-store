@@ -48,7 +48,23 @@ module.exports = defineConfig({
     },
     {
       resolve: "./src/modules/restock",
-    }
+    },
+    {
+      resolve: "@medusajs/medusa/notification",
+      options: {
+        providers: [
+          // For debugging. To setup email Notification Module Providers
+          // refer to this documentation: https://docs.medusajs.com/resources/architectural-modules/notification
+          {
+            resolve: "@medusajs/medusa/notification-local",
+            id: "local",
+            options: {
+              channels: ["email", "feed"],
+            },
+          },
+        ],
+      },
+    },
   ],
   plugins: [
     {
