@@ -6,6 +6,7 @@ import { PostStoreReviewSchema } from "./store/reviews/route";
 import { GetAdminReviewsSchema } from "./admin/reviews/route"
 import { PostAdminUpdateReviewsStatusSchema } from "./admin/reviews/status/route"
 import { GetStoreReviewsSchema } from "./store/products/[id]/reviews/route"
+import { PostStoreCreateRestockSubscription } from "./store/restock-subscriptions/validators";
 
 export const GetBrandsSchema = createFindParams();
 
@@ -95,6 +96,16 @@ export default defineMiddlewares({
           ],
         }),
       ],
+    },
+    {
+      matcher: "/store/restock-subscriptions",
+      method: "POST",
+      middlewares: [
+        authenticate("customer", ["bearer", "session"], {
+          allowUnauthenticated: true
+        }),
+        validateAndTransformBody(PostStoreCreateRestockSubscription)
+      ]
     }
   ],
 })
