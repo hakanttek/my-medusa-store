@@ -65,6 +65,13 @@ module.exports = defineConfig({
         ],
       },
     },
+    {
+      resolve: "./src/modules/blog",
+      options: {
+        capitalize: true,
+        apiKey: "api-key"
+      },
+    },
   ],
   plugins: [
     {
