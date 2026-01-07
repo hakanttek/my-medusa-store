@@ -78,6 +78,9 @@ const BrandPage = () => {
         </DataTable.Toolbar>
         <DataTable.Table />
         <DataTable.Pagination />
+        <div className="flex justify-end p-2">
+          <Heading>{t("item_count", { count: table.getRowModel().rows.length })}</Heading>
+        </div>
       </DataTable>
     </Container>
   )
