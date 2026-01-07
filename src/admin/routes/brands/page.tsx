@@ -73,7 +73,7 @@ const BrandPage = () => {
     <Container className="divide-y p-0">
       <DataTable instance={table}>
         <DataTable.Toolbar className="flex flex-col items-start justify-between gap-2 md:flex-row md:items-center">
-          <Heading>{t("brands.title")}</Heading>
+          <Heading>{t("brand.title")}</Heading>
         </DataTable.Toolbar>
         <DataTable.Table />
         <DataTable.Pagination />
