@@ -30,6 +30,13 @@
     "@medusajs/cli": "2.11.1",
     "@medusajs/framework": "2.11.1",
     "@medusajs/medusa": "2.11.1",
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/core": "1.x",
+    "@opentelemetry/exporter-trace-otlp-grpc": "^0.208.0",
+    "@opentelemetry/sdk-trace-base": "1.x",
+    "@opentelemetry/semantic-conventions": "1.x",
+    "@sentry/node": "^10.32.1",
+    "@sentry/opentelemetry-node": "^7.114.0",
     "medusa-plugin-wishlist": "file:.yalc/medusa-plugin-wishlist"
   },
   "devDependencies": {
