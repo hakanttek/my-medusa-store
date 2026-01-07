@@ -78,5 +78,8 @@ module.exports = defineConfig({
       resolve: "medusa-plugin-wishlist",
       options: {}
     }
-  ]
+  ],
+  featureFlags: {
+    "index_engine": true,
+  },
 })
