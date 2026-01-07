@@ -4,5 +4,8 @@
     "description": "Gestiona las marcas de tus productos",
     "welcome_message": "Bienvenido, {{username}}!"
   },
-  "done": "Hecho"
+  "done": "Hecho",
+  "item_count_one": "Tienes {{count}} artículo.",
+  "item_count_other": "Tienes {{count}} artículos.",
+  "item_count_zero": "No tienes artículos."
 }

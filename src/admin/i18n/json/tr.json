@@ -4,5 +4,8 @@
     "description": "Marka yönetimi",
     "welcome_message": "Merhaba, {{username}}!"
   },
-  "done": "Tamam"
+  "done": "Tamam",
+  "item_count_one": "{{count}} adet öğen var.",
+  "item_count_other": "{{count}} adet öğen var.",
+  "item_count_zero": "Hiç öğen yok."
 }

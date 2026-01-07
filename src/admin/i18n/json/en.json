@@ -4,5 +4,8 @@
     "description": "Manage your product brands",
     "welcome_message": "Welcome, {{username}}!"
   },
-  "done": "Done"
+  "done": "Done",
+  "item_count_one": "You have {{count}} item.",
+  "item_count_other": "You have {{count}} items.",
+  "item_count_zero": "You have no items."
 }
