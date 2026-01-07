@@ -74,6 +74,7 @@ const BrandPage = () => {
       <DataTable instance={table}>
         <DataTable.Toolbar className="flex flex-col items-start justify-between gap-2 md:flex-row md:items-center">
           <Heading>{t("brand.title")}</Heading>
+          <Heading>{t("brand.welcome_message", { username: "John" })}</Heading>
         </DataTable.Toolbar>
         <DataTable.Table />
         <DataTable.Pagination />

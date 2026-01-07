@@ -1,7 +1,8 @@
 {
   "brand": {
     "title": "Brand",
-    "description": "Manage your product brands"
+    "description": "Manage your product brands",
+    "welcome_message": "Welcome, {{username}}!"
   },
   "done": "Done"
 }

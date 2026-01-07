@@ -1,7 +1,8 @@
 {
   "brand": {
     "title": "Marcas",
-    "description": "Gestiona las marcas de tus productos"
+    "description": "Gestiona las marcas de tus productos",
+    "welcome_message": "Bienvenido, {{username}}!"
   },
   "done": "Hecho"
 }

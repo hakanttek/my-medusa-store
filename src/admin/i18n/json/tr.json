@@ -1,0 +1,8 @@
+{
+  "brand": {
+    "title": "Marka",
+    "description": "Marka yönetimi",
+    "welcome_message": "Merhaba, {{username}}!"
+  },
+  "done": "Tamam"
+}
