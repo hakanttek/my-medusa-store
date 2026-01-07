@@ -1,6 +1,6 @@
 {
-  "brands": {
-    "title": "Brands",
+  "brand": {
+    "title": "Brand",
     "description": "Manage your product brands"
   },
   "done": "Done"

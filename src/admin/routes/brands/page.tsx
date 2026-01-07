@@ -11,6 +11,7 @@ import { TagSolid } from "@medusajs/icons";
 import { useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { sdk } from "../../lib/sdk";
+import { useTranslation } from "react-i18next"
 
 type Brand = {
   id: string
@@ -66,11 +67,13 @@ const BrandPage = () => {
     }
   });
 
+  const { t } = useTranslation()
+
   return (
     <Container className="divide-y p-0">
       <DataTable instance={table}>
         <DataTable.Toolbar className="flex flex-col items-start justify-between gap-2 md:flex-row md:items-center">
-          <Heading>Brands</Heading>
+          <Heading>{t("brands.title")}</Heading>
         </DataTable.Toolbar>
         <DataTable.Table />
         <DataTable.Pagination />
